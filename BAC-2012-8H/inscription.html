@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function verifalpha(ch){
+            i=0
+            while ((i<ch.length-1)&&((ch.charAt(i).toUpperCase()>="A")&&(ch.charAt(i).toUpperCase()<="Z"))){
+                i++
+            }
+            return ((ch.charAt(i).toUpperCase()>="A")&&(ch.charAt(i).toUpperCase()<="Z"))
+        }
+        function verif(){
+            nu = document.getElementById("nu").value;
+            n = document.getElementById("n").value;
+            p = document.getElementById("p").value;
+            f = document.getElementById("f").checked;
+            g = document.getElementById("g").checked;
+            sl = document.getElementById("sl").value;
+            if(isNaN(nu)||nu.indexOf(" ")!=-1||nu.length!=4){
+                alert('verif num')
+                return false
+            }
+            if(!verifalpha(n)){
+                alert('verif nom')
+                return false
+            }if(!verifalpha(p)){
+                alert('verif prenom')
+                return false
+            }
+            if(f==false && g==false){
+                alert('select genre obligatoir')
+                return false
+            }
+            if(sl==-1){
+                alert('select obligatoir')
+                return false
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="inscrie.php" method="post" onsubmit=" return verif()">
+        inscription des electeur
+        <br>
+        num: <input type="text" name="nu" id="nu"><br>
+        nom: <input type="text" name="n" id="n"><br>
+        prenom: <input type="text" name="p" id="p"><br>
+        genre: <input type="radio" name="g" id="f" value="F"> Fille <input type="radio" name="g" id="g" value="G"> Garcon 
+   <br>     niveau scolaire:
+        <select name="sl" id="sl">
+            <option value="7">7eme</option>
+            <option value="8">8eme</option>
+            <option value="9">9eme</option>
+        </select>
+        <br>
+        <input type="submit" value="Inscrie">
+        <input type="reset" value="Annuler">
+    </form>
+</body>
+</html>

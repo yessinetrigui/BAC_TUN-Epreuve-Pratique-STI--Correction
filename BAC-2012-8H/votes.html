@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function verif(){
+            en = document.getElementById('en').value;
+            f1 = document.getElementById('f1').checked;
+            f2 = document.getElementById('f2').checked;
+            g1 = document.getElementById('g1').checked;
+            g2 = document.getElementById('g2').checked;
+            if(isNaN(en)||en.indexOf(" ")!=-1||en.length!=4){
+                alert('verif num electeur')
+                return false
+            }
+            if(f1==false && f2==false){
+                alert('choix d"une candidate fille est obligatoir')
+                return false
+            }
+            if(g1==false && g2==false){
+                alert('choix d"un candidat garcon est obligatoir')
+                return false
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="votes.php" method="post" onsubmit="return verif()">
+        Saisie des votesElecteur N: 
+        <input type="text" name="en" id="en">
+        <br>
+        Les candidates:
+        <br>
+        <table>
+            <tr>
+                <td>
+                    Fille
+                    <br>
+                    <input type="radio" name="f" id="f1" value="8000">
+                    Abbasi Sihem
+                    <br>
+                    <input type="radio" name="f" id="f2" value="9001">
+                    Troudi Meryem
+                </td>
+                <td>
+                    Garcon
+                    <br>
+                    <input type="radio" name="g" id="g1" value="8001">
+                    Ben Abdallah Kacem
+                    <br>
+                    <input type="radio" name="g" id="g2" value="9000">
+                    Dridi Brahim
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Voter">
+        <input type="reset" value="Annuler">
+    </form>
+</body>
+</html>
