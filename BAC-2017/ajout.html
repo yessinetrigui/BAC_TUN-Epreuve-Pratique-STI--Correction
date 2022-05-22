@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="contole.js">
+       
+    </script>
+</head>
+<body>
+    <form action="ajout.php" method="post" onsubmit="return verif()">
+        Proposition d'offre
+        <br>
+        cin: <input type="text" name="c" id="c"> <br>
+        nom: <input type="text" name="n" id="n"> <br>
+        prenom: <input type="text" name="p" id="p"> <br>
+        tel: <input type="text" name="t" id="t"> <br>
+        <hr>
+        article: <select name="sl" id="sl">
+            <option value="-1">selection un article</option>
+            <option value="120">Les gants du gardian attouga</option>
+            <option value="212"> voiture 202 bh</option>
+            <option value="36">luth de hedi jouini</option>
+            <option value="45">manusicrit d'abou kacem el chebbi</option>
+        </select>
+        Prix Proposé: <input type="text" name="pp" id="pp">
+        <br>
+        <input type="submit" value="valider">
+        <input type="reset" value="annuler">
+    </form>
+    
+
+</body>
+</html>
