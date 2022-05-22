@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesures</title>
+    <script>
+        function Test1(){
+            sl1 = document.getElementById('sl1').value;
+            sl2 = document.getElementById('sl2').value;
+            a1 = document.getElementById('a1');
+            a2 = document.getElementById('a2');
+
+            t = document.getElementById('t').value;
+            p = document.getElementById('p').value;
+            if(sl1 == "-1" || sl2 == "-1"){
+                alert('tu dois selecter')
+                return false
+            }
+            if((a1.checked==false) && (a2.checked==false)){
+                alert('select une anne')
+                return false
+            }
+            if(isNaN(t) || t.length ==0){
+                alert('temperature doit etre un nombre')
+                return false
+            }
+            if(t<-5){
+                alert('temperature doit etre entre -5 et 50')
+                return false
+            }
+            if(t>50){
+                alert('temperature doit etre entre -5 et 50')
+                return false
+            }
+            if(isNaN(p) || p.length ==0){
+                alert('pluie doit etre un nombre')
+                return false
+            }
+            if(p<0){
+                alert('pluie doit etre >=0')
+                return false
+            }
+            return true
+        }
+    </script>
+</head>
+<body>
+    <form action="Mesures.php" method="POST" onsubmit="return Test1()">
+        <fieldset>
+            <legend>Ajout des Mesures: </legend>
+            <center>
+                Station:
+                <select name="sl1" id="sl1">
+                    <option value="-1">Choisir une station</option>
+                    <option>Carthage</option>
+                    <option>Enfidha-Aéroport</option>
+                    <option>El-Borma</option>
+                </select>
+                Saison:
+                <select name="sl2" id="sl2">
+                    <option value="-1">Choisir une saison</option>
+                    <option>Hiver</option>
+                    <option>Printemps</option>
+                    <option>Ete</option>
+                    <option>Automne</option>
+                </select>
+                <br>
+                Anné: <input type="radio" name="r" id="a1" value="2018"> 2018
+                <input type="radio" name="r" id="a2" value="2019"> 2019
+                <br>
+                Température: <input type="text" name="t" id="t"> (°C)
+                <br>
+                Pluie: <input type="text" name="p" id="p"> (mm)
+                <br>
+                <input type="reset" value="Annuler">
+                <input type="submit" value="Ajouter">
+            </center>
+        </fieldset>
+    </form>
+</body>
+</html>

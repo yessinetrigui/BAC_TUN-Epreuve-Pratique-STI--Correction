@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesures</title>
+    <script>
+         function Test2(){
+            sl = document.getElementById('sl').value;
+            t = document.getElementById('t');
+            p = document.getElementById('p');
+            if(sl == "-1"){
+                alert('tu doit selectioner une station')
+                return false
+            }
+            if((t.checked==false) && (p.checked==false)){
+                alert('tu dois cocher un option');
+                return false
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="consultation.php" method="POST" onsubmit="return Test2()">
+        <fieldset>
+            <legend>Consultation: </legend>
+            <center>
+                Station:
+                <select name="sl" id="sl">
+                    <option value="-1">Choisir une station</option>
+                    <option>Carthage</option>
+                    <option>Enfidha-Aeroport</option>
+                    <option>El-Borma</option>
+                </select>
+                <br>
+                Donnée Climatique: 
+                <input type="radio" name="r" id="t" value="temp"> Température
+                <input type="radio" name="r" id="p" value="pluie"> Pluie
+                <br>
+                <input type="reset" value="Annuler">
+                <input type="submit" value="Afficher">
+            </center>
+        </fieldset>
+    </form>
+</body>
+</html>
