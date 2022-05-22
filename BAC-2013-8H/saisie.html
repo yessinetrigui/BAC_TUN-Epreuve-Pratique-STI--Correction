@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="test.js"></script>
+</head>
+<body>
+    <form action="saisir.php" method="post" onsubmit="return verif()">
+        <center>La saisie des notes</center>
+        <br>
+        Numero de l'eleve: <input type="text" name="ne" id="ne">
+        <hr>
+        <table>
+            <tr>
+                <td><center>Matier</center></td>
+                <td>Note Du DC</td>
+                <td>Note Du DS</td>
+            </tr>
+            <tr>
+                <td> <select name="sl" id="sl">
+                    <option value="-1">choisir une matiere</option>
+                    <option value="Algo">algorithmique et programmation</option>
+                    <option value="BD">base de données</option>
+                    <option value="TIC">technology de linformation et la communication</option>
+                </select></td>
+                <td><input type="text" name="dc" id="dc"><br> <center><input type="reset" value="annuler"></center>
+                </td>
+                <td><input type="text" name="ds" id="ds"><br>
+                    <center><input type="submit" value="Valider"></center>
+                    </td>
+            </tr>
+        </table>
+        
+    </form>
+</body>
+</html>

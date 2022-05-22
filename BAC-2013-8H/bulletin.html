@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function verif(){
+            ne = document.getElementById("ne").value;
+            if(ne.substring(0,3)!="4SI"){
+        alert("verif numero eleve")
+        return false
+    }
+    npart = ne.substring(3);
+    if(isNaN(npart)||npart.indexOf(" ")!=-1){
+        alert("verif numero eleve")
+
+        return false
+    }else if(npart<=0){
+        alert("verif numero eleve")
+        return false;
+    }
+    return true
+        }
+    </script>
+</head>
+<body>
+    <form action="bulletin.php" method="post" onsubmit="return verif()">
+        <center>Bulletin Des Notes</center>
+        Numero de eleve:
+        <input type="text" name="ne" id="ne">
+        <input type="reset" value="anuller">
+        <input type="submit" value="afficher">
+    </form>
+</body>
+</html>
