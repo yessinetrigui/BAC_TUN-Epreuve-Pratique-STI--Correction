@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function DT(){
+            document.getElementById("Y").value= new Date().getFullYear();
+        }        
+        function verif(){
+            sl1 = document.getElementById("sl1").value;
+            sl2 = document.getElementById("sl2").value;
+            Y = document.getElementById("Y").value;
+            M = document.getElementById("M").value;
+            J = document.getElementById("D").value;
+            if(sl1==-1 || sl2==-1){
+                alert('selct des champ est obligatoir')
+            }
+            if(J<1||J>31){
+                alert("verif date");
+                return false
+            }
+            if(M<1||M>12){
+                alert("verif date");
+
+                return false
+            }
+            if(M==4||M==6||M==9||M==11){
+                if(J>=31){
+                alert("verif date");
+
+                    return false;
+                }
+            }else if(M==2){
+                if(Y%4==0){
+                    if(J>29){
+                alert("verif date");
+
+                        return false
+                    }
+                }else{
+                    if(J>28){
+                alert("verif date");
+
+                        return false
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="DT()">
+    <form action="ajout.php" method="post" onsubmit="return verif()">
+        <fieldset>
+            <legend>Ajout D'un spectacle</legend>
+            <table>
+                <tr>
+                    <td>Piece:
+                        <br>
+                        <select name="sl1" id="sl1">
+                            <option value="-1">choisir un piece</option>
+                            <option value="1">Le trésor</option>
+                            <option value="2">Le peche de succes</option>
+                            <option value="3">Le gardien</option>
+                            <option value="4">les soldats de la lune</option>
+                            <option value="5">L'eternel retour</option>
+                        </select>
+                    </td>
+                    <td>Salle:
+                        <br>
+                        <select name="sl2" id="sl2">
+                            <option value="-1">choisir une salle</option>
+                            <option value="TM">Théatre municipal</option>
+                            <optio value="QA">Quatrieme art</optio>
+                            <option value="EN">l'etoile du nord</option>
+                            <option value="EA" >espace artisto</option>
+                        </select>
+                    </td>
+                    <td>
+                        Date Du spectacle: <br>
+                        <input type="text" size="2" name="D" id="D">/<input type="text" size="2" name="M" id="M">/<input type="text" size="6" id="Y" name="Y">(JJ/MM/AAAA)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <input type="reset" value="annuler">
+                        <input type="submit" value="ajouter">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</body>
+</html>
