@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function verif(){
+            c = document.getElementById("c").value;
+            n = document.getElementById("n").value;
+            p = document.getElementById("p").value;
+            if(isNaN(c)||c.indexOf(" ")!=-1||c.length!=8){
+                alert ("verif cin")
+                return false;
+            }
+            if(n.length==0){
+                alert ('veif nom')
+                return false
+            }
+            if(p.length==0){
+                alert ('veif prenom')
+                return false
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="ajout.php" method="post" onsubmit="return verif()">
+         <center>identification</center>  
+        <br>
+        cin <input type="text" name="c" id="c">
+        nom <input type="text" name="n" id="n">
+        prenom <input type="text" name="p" id="p">
+        <hr>
+        <center>TEST</center>
+        <br>
+        <br>
+        Exercice 1 (4point):
+        <br>
+        Quels Sont les operatuer qui peuvent etre utuliser avec les reels?
+        <select name="ex1" id="sl">
+            <option>And,OR,NOT</option>
+            <option>+,-,*,/</option>
+            <option>DIV, MOD</option>
+        </select>
+        <br>
+        <br>
+        Exercice 2 (4point):
+        <br>
+        Quels est les operateur qui peut etre utulisé dans l'expression suivantes:
+        <br>19......3=1
+        <br>
+        <input type="radio" name="ex2" id="ex2_1" value="DIV">DIV
+        <input type="radio" name="ex2" id="ex2_2" value="AND">AND
+        <input type="radio" name="ex2" id="ex2_3" value="MOD">MOD
+        <br>
+        <br>
+        Exercice 3 (12 point(4+4+4)):
+        <br>
+        Numeroter les etapes suivante:
+        <br>
+        <br>
+        <input type="text" name="sm" id="e1">
+        Somme<-- a +b
+        <br>
+        <br>
+        <input type="text" name="lr" id="e1">
+        Lire(a,b)
+        <br>
+        <br>
+        <input type="text" name="ec" id="e1">
+        Ecrire(Somme)
+        <br>
+        <br>
+        <input type="text" name="e3" id="e1">
+        Fin Calcul
+        <br>
+        <br>
+        <input type="text" name="e4" id="e1">
+        Debut Calcul
+        <br>
+        <br>
+        <br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+</body>
+</html>
