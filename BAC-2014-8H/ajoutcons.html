@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       
+        function verif(){
+            m = document.getElementById('m').value;
+            d = document.getElementById('d').value;
+            j = document.getElementById('j').value;
+            if(isNaN(m)||m.indexOf(" ")!=-1||m.length!=4){
+                alert('verif mat')
+                return false;
+            }
+            if(d.length==0){
+                alert("verif details")
+                return false
+            }
+            
+            if(isNaN(j)||j.indexOf(" ")!=-1){
+                alert ("verif jour")
+                return false;
+            }else{
+                if(j<0){
+                    alert ("verif jour")
+                    return false;
+
+                }
+            }
+            return true
+        }
+    </script>
+</head>
+<body>
+    <form action="ajoutcons.php" method="post" onsubmit="return verif()">
+        Ajout Un patient <br>
+        Matricule: <input type="text" name="m" id="m"><br>
+        details: <textarea name="d" id="d" cols="30" rows="10"></textarea><br>
+        prochain R.D.V Aprés: <input type="text" name="j" id="j">Jour<br>
+        <input type="submit" value="ajouter">
+        <input type="reset" value="anuler">
+    </form>
+</body>
+</html>

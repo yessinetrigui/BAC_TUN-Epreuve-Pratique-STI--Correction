@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function alpha(ch){
+            i=0
+            while ((i<ch.length-1)&&((ch.charAt(i).toUpperCase()>="A")&&(ch.charAt(i).toUpperCase()<="Z"))){
+                i++;
+            }
+            return ((ch.charAt(i).toUpperCase()>="A")&&(ch.charAt(i).toUpperCase()<="Z"));
+        }
+        function verif(){
+            m = document.getElementById('m').value;
+            n = document.getElementById('n').value;
+            p = document.getElementById('p').value;
+            if(isNaN(m)||m.indexOf(" ")!=-1||m.length!=4){
+                alert('verif mat')
+                return false;
+            }
+            if(!alpha(n)){
+                alert("verif nom")
+                return false
+            }
+            
+            if(!alpha(p)){
+               alert("verif nom")
+                return false
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="ajoutpa.php" method="post" onsubmit="return verif()">
+        Ajout Un patient <br>
+        Matricule: <input type="text" name="m" id="m">
+        nom: <input type="text" name="n" id="n">
+        prenom: <input type="text" name="p" id="p">
+        <input type="submit" value="ajouter">
+        <input type="reset" value="anuler">
+    </form>
+</body>
+</html>
