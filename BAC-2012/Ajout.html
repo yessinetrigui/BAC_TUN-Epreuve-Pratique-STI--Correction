@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function verif(){
+            t = document.getElementById('t').value;
+            sl = document.getElementById('sl').selectedIndex;
+            d = document.getElementById('d').value;
+            if(isNaN(t) || t.length!=8 || t.indexOf(" ")!=-1){
+                alert('verif num tel')
+                return false
+            }
+            if(sl<=0){
+                alert('verif select')
+                return false
+            }
+            if((sl==4)&&(d=="")){
+                alert('verif description')
+                return false
+            }
+            return true
+        }
+    </script>
+</head>
+<body>
+    <form action="ajout.php" method="post" onsubmit="return verif()">
+        Ajout une reclamation
+        <br>
+        tel client:
+        <input type="text" name="t" id="t">
+        <br>
+        categorie:
+        <select name="sl" id="sl">
+            <option>Choisir une catégorie</option>
+            <option value="1">Authentification</option>
+            <option value="2">Branchement</option>
+            <option value="3">Synchronisation</option>
+            <option value="4">Autres</option>
+        </select>
+        <br>
+        description:
+        <textarea name="d" id="d" cols="30" rows="10"></textarea>
+        <br>
+        <input type="submit" value="ajoute">
+    <input type="reset" value="Anuuler">
+    </form>
+</body>
+</html>

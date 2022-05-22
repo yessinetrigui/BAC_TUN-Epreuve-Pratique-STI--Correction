@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function verifNum(num){
+            i=0
+            while ((i<num.length) && ( (num[i].toUpperCase()>="0") && (num[i].toUpperCase()<="9"))){
+                i++;
+            }
+            return i!=num.length
+        }
+        function verifAlpha(ch){
+            i=0
+            while ((i<ch.length) && ( (ch[i].toUpperCase()>="A") && (ch[i].toUpperCase()<="Z"))){
+                i++;
+            }
+            return i!=ch.length
+        }
+        function verif(){
+            pass = true
+            nom = document.getElementById('n').value;
+            prenom = document.getElementById('p').value;
+            tel = document.getElementById('t').value;
+            adr = document.getElementById('a').value;
+            m = document.getElementById('m').value;
+            mc = document.getElementById('mc').value;
+       
+            if((nom.length<3)){
+                pass = false
+                alert('nom error length')
+            }else if(verifAlpha(nom)){
+                pass = false
+                alert('nom chaine char')
+            }else if((prenom.length<3)){
+                pass = false
+                alert('prenom Error length')
+            }else if(verifAlpha(prenom)){
+                pass = false
+                alert('prenom chaine char')
+            }
+            else if ( (tel.length!=8) || (tel[0]<"1") || (verifNum(tel)) ){
+                pass = false
+                alert('telephone Error')
+            }else if(adr.length<10){
+                pass = false
+                alert('adress Error')
+            }else if ((m.length!=6) || (m.indexOf(" ")!=-1)){
+                pass = false
+                alert('mot de pass Error')
+            }else if (m!=mc){
+                pass = false
+                alert('mot de pass confirm Error')
+            }
+            
+            return pass
+        }
+    </script>
+</head>
+<body>
+    <h1>Inscription</h1>
+    <form action="inscription.php" method="POST" onsubmit="return verif()">
+        <fieldset>
+            <legend>Inscription</legend>
+                Nom: <input type="text" name="n" id="n">
+                <br>
+                Prenom: <input type="text" name="p" id="p">
+                <br>
+                Tel: <input type="text" name="t" id="t">
+                <br>
+                Adresse:
+                <textarea name="a" id="a" cols="30" rows="10"></textarea> 
+                <br>
+                Mot De Pass: <input type="text" name="m" id="m">
+                <br>
+                Mot De Pass: <input type="text" name="mc" id="mc">
+                <br>
+                <input type="reset" value="Annuler">
+                <input type="submit" value="Valider" name="REQ">
+        </fieldset>
+    </form>
+</body>
+</html>

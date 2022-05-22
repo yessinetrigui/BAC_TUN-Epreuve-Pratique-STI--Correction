@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function checkDate(d){
+            if(d.length!=10){
+                return false;
+            }
+            if((d.indexOf('-')==-1)||(d.indexOf('-')==d.lastIndexOf('-'))){
+                return false;
+            }
+            Y = d.substring(0, d.indexOf("-"))
+            M = d.substring(d.indexOf("-")+1 , d.lastIndexOf("-"))
+            J = d.substring(d.lastIndexOf("-")+1)
+            if(Y.length!=4||M.length!=2||J.length!=2){
+                return false;
+            }
+            if((isNaN(Y))||(Y.indexOf(" ")!=-1)){
+                return false;
+            }
+            if((isNaN(M))||(M.indexOf(" ")!=-1)){
+                return false;
+            }
+            if((isNaN(J))||(J.indexOf(" ")!=-1)){
+                return false;
+            }
+            return true
+        }
+        function verif(){
+            t = document.getElementById('t').value;
+            d = document.getElementById('d').value;
+            if((isNaN(t))||(t.indexOf(" ")!=-1)||(t.length!=8)){
+                alert('verif num')
+                return false;
+            }if(!checkDate(d)){
+                alert('verif checkDate')
+                return false;
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <form action="Traitement.php" method="post" onsubmit="return verif()">
+        Traitement D'une Reclamation
+        <br>
+        Tel. Client: <input type="text" name="t" id="t">
+        <br>
+        Date Reparation <input type="text" name="d" id="d">
+        <br>
+        <input type="submit" value="Valider">
+        <input type="reset" value="Annuler">
+    </form>
+</body>
+</html>

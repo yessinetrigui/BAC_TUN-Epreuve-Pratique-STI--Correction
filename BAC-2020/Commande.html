@@ -1,0 +1,69 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function verifNum(num){
+            i=0
+            while ((i<num.length) && ( (num[i].toUpperCase()>="0") && (num[i].toUpperCase()<="9"))){
+                i++;
+            }
+            return i!=num.length
+        }
+        function verif(){
+            pass = true
+            tp = document.getElementById('tp').value;
+            q = document.getElementById('q').value;
+            t = document.getElementById('t').value;
+            m = document.getElementById('m').value;
+            if(tp==-1){
+                pass = false
+                alert('selection obligatoire !');
+            }else if((q<1)|| (q>5)){
+                pass = false
+                alert('quantité entre 1 et 5 !');
+            }else if ( (t.length!=8) || (t[0]<"1") || (verifNum(t)) ){
+                pass = false
+                alert('telephone Error')
+            }else if ((m.length!=6) || (m.indexOf(" ")!=-1)){
+                pass = false
+                alert('mot de pass Error')
+            }
+            return pass;
+        }
+    </script>
+</head>
+<body>
+    <h1>Commande</h1>
+    <form action="commande.php" method="post" onsubmit="return verif()">
+        <fieldset>
+            <legend>Command de Pizza</legend>
+            Type De Pizza:
+            <select name="tp" id="tp">
+                <option value="-1">Choisir une Pizza</option>
+                <option value="Fmr">Fruit De Mer</option>
+                <option value="Mgh">Margherita</option>
+                <option value="Nap">Napolitaine</option>
+                <option value="Nep">Neptune</option>
+                <option value="Roy">Royale</option>
+            </select>
+            <br>
+            quantité:
+            <input type="text" name="q" id="q">
+            <br>
+            Tel
+            <input type="text" name="t" id="t">
+            <br>
+            Mot De Pass:
+            <input type="text" name="m" id="m">
+            <br><br>
+            <input type="reset" value="Annuler">
+            <input type="submit" value="Valider"  name="REQ">
+
+        </fieldset>
+    </form>
+</body>
+</html>

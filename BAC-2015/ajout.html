@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="controle.js"></script>
+</head>
+<body>
+    <form name="f" action="ajout.php" method="post" onsubmit="return verif()">
+        <fieldset>
+            <legend>Ajout D'un pilote</legend>
+            Matricule: <input type="text" name="m" id="m"><br>
+            Nom: <input type="text" name="n" id="n"><br>
+            Prenom: <input type="text" name="p" id="p"><br>
+               Genre: <input type="radio" name="g" id="h" value="H">Homme <input type="radio" name="g" id="f" value="F"> Femme
+            <br>  Email: <input type="text" name="e" id="e">
+            <br>
+            <input type="reset" value="Annuler">
+            <input type="submit" value="Ajout" name="G">
+        </fieldset>
+    </form>
+</body>
+</html>
