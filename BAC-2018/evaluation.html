@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="controle.js"></script>
+</head>
+<body onload="GenererCaptcha()">
+    <form action="evaluation.php" method="post" onsubmit="return verif()">
+        evaluation d'un hotel
+        <br>
+        Hotel:
+        <select name="sl" id="sl">
+            <option value="-1">choisir un hotel</option>
+            <option value="10">5 Stars</option>
+            <option value="20">Globe</option>
+            <option value="30">The Sun</option>
+        </select>
+        <br>
+        <table border="1">
+            <tr>
+                <td>Acceuil:</td>
+                <td>
+                    <input type="radio" name="a" id="a1" value="3">Tres satisfaisant
+                    <input type="radio" name="a" id="a2"  value="2">satisfaisant
+                    <input type="radio" name="a" id="a3"  value="1">peu satisfaisant
+                </td>
+            </tr>
+            <tr>
+                <td>Restauration:</td>
+                <td>
+                    <input type="radio" name="r" id="r1" value="3">Tres satisfaisant
+                    <input type="radio" name="r" id="r2"  value="2">satisfaisant
+                    <input type="radio" name="r" id="r3"  value="1">peu satisfaisant
+                </td>
+            </tr>
+            <tr>
+                <td>Extra:</td>
+                <td>
+                    <input type="checkbox" name="po" id="po" value="4">pisicne ouvert <br>
+                    <input type="checkbox" name="pp" id="pp" value="2">plage privée <br>
+                    <input type="checkbox" name="cw" id="cw" value="1">couverture wifi
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    captcha
+                    <input type="text" name="cq" id="cq" readonly>
+                    <input type="button" value="actualise" onclick="GenererCaptcha()">
+                    combien de lettre majuscule dans la capatcha
+                    <br>
+                    reponse
+                    <input type="text" name="rp" id="rp">
+                </td>
+            </tr>
+        </table>
+        <input type="reset" value="annuler">
+        <input type="submit" value="valider">
+    </form>
+</body>
+</html>
