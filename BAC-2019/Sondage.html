@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="Controle.js"></script>
+</head>
+<body>
+    <form action="sondage.php" method="post" onsubmit="return verif()">
+        <fieldset>
+            <legend>Sondage</legend>
+            <br>
+            Authentification/Inscription:
+            @Mail: <input type="text" name="m" id="m">
+            mot de pass <input type="text" name="mdp" id="mdp">
+            genre <select name="sl" id="sl">
+                <option value="-1">choisir genre</option>
+                <option value="f">feminin</option>
+                <option value="m">masculin</option>
+            </select>
+            <br>
+            Les resaux sociaux:
+            <table border="1">
+                <tr>
+                    <td>N:</td>
+                    <td>Question/Affirmation</td>
+                    <td>Oui</td>
+                    <td>Non</td>
+                    <td>Sans Avis</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Les informations partagées sur les réseaux sociaux sont fiables</td>
+                    <td><input type="radio" name="q1" id="q1_1" value="O"></td>
+                    <td><input type="radio" name="q1" id="q1_2" value="N"></td>
+                    <td><input type="radio" name="q1" id="q1_3" value="S"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>L'usage des réseaux sociaux par les enfants doit être sous le
+                        contrôle parental</td>
+                    <td><input type="radio" name="q2" id="q2_1" value="O"></td>
+                    <td><input type="radio" name="q2" id="q2_2" value="N"></td>
+                    <td><input type="radio" name="q2" id="q2_3" value="S"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Les réseaux sociaux deviennent une nécessité pour les citoyens</td>
+                    <td><input type="radio" name="q3" id="q3_1" value="O"></td>
+                    <td><input type="radio" name="q3" id="q3_2" value="N"></td>
+                    <td><input type="radio" name="q3" id="q3_3" value="S"></td>
+                </tr>
+            </table>
+            <input type="submit" value="Envoyer">
+            <input type="reset" value="annuler">
+        </fieldset>
+    </form>
+</body>
+</html>
